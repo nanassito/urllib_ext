@@ -9,6 +9,8 @@ setuptools = "*"
 wheel = "*"
 twine = "*"
 pytest = "*"
+mypy = "*"
+pre-commit = "*"
 
 [packages]
 

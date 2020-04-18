@@ -1,5 +1,4 @@
-import urllib_parse_ParseResult_overloaded
-from urllib.parse import urlparse
+from urllib_ext.parse import urlparse
 
 import pytest
 
@@ -11,7 +10,7 @@ import pytest
         ("http://domain.tld", "bar", "http://domain.tld/bar"),
         ("http://domain.tld/", "/foo/bar", "http://domain.tld/foo/bar"),
         ("http://domain.tld/foo?q=1", "bar", "http://domain.tld/foo/bar?q=1"),
-    ]
+    ],
 )
 def test_truediv(left, right, result):
     assert urlparse(left) / right == urlparse(result)

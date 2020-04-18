@@ -4,7 +4,7 @@ Overload `urllib.parse.ParseResult` to be able to use operators like / and &amp;
 # Usage
 ```
 import urllib_parse_ParseResult_overloaded
-from urllib.parse import urlparse
+from urllib_ext.parse import urlparse
 
 urlparse("http://domain.tld/foo") / "bar" == urlparse("http://domain.tld/foo/bar")
 ```
