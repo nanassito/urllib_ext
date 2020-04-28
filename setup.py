@@ -1,8 +1,20 @@
 from datetime import date
 
+import requests
 from setuptools import find_packages, setup
+from urllib_ext.parse import urlparse
 
-today = date.today()
+
+def get_next_version(project: str):
+    project_url = urlparse("https://pypi.org/project") / project
+    today = date.today()
+    version = f"{today:%Y}.{today:%m}.{today:%d}"
+    minor = 0
+    while requests.get(str(project_url / version)).status_code == 200:
+        minor += 1
+        version = f"{today:%Y}.{today:%m}.{today:%d}.{minor}"
+    return version
+
 
 with open("README.md", "r") as fh:
     long_description = fh.read()
@@ -10,7 +22,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name="urllib_ext",
-    version=f"{today:%Y}.{today:%m}.{today:%d}",
+    version=get_next_version("urllib-ext"),
     author="Dorian Jaminais",
     author_email="urllib_ext@jaminais.fr",
     description="Overload urllib.parse.ParseResult to be able to use operators "

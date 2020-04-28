@@ -11,6 +11,7 @@ twine = "*"
 pytest = "*"
 mypy = "*"
 pre-commit = "*"
+requests = "*"
 
 [packages]
 
