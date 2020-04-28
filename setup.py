@@ -1,5 +1,8 @@
-from setuptools import setup, find_packages
+from datetime import date
 
+from setuptools import find_packages, setup
+
+today = date.today()
 
 with open("README.md", "r") as fh:
     long_description = fh.read()
@@ -7,7 +10,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name="urllib_ext",
-    version="0.1.0",
+    version=f"{today:%Y}.{today:%m}.{today:%d}",
     author="Dorian Jaminais",
     author_email="urllib_ext@jaminais.fr",
     description="Overload urllib.parse.ParseResult to be able to use operators "

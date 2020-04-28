@@ -14,3 +14,9 @@ import pytest
 )
 def test_truediv(left, right, result):
     assert urlparse(left) / right == urlparse(result)
+
+
+def test_recurse():
+    u = urlparse("http://domain.tld") / "foo"
+    u /= "bar"
+    assert u == urlparse("http://domain.tld/foo/bar")
