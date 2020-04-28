@@ -8,6 +8,9 @@ class Url(ParseResult):
         url_parts[2] = self.path.rstrip("/") + "/" + right.lstrip("/")
         return Url(*url_parts)
 
+    def __str__(self: "Url") -> str:
+        return self.geturl()
+
 
 def urlparse(text: str) -> Url:
     return Url(*std_urlparse(text))

@@ -16,7 +16,11 @@ def test_truediv(left, right, result):
     assert urlparse(left) / right == urlparse(result)
 
 
-def test_recurse():
+def test_recurse_truediv():
     u = urlparse("http://domain.tld") / "foo"
     u /= "bar"
     assert u == urlparse("http://domain.tld/foo/bar")
+
+
+def test_str():
+    assert str(urlparse("http://domain.tld/foo")) == "http://domain.tld/foo"
